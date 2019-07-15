@@ -1,18 +1,18 @@
-package gestorAplicación.personas;
+package gestorAplicaciÃ³n.personas;
 import java.util.*;
-import gestorAplicación.documents.*;
+import gestorAplicaciÃ³n.documents.*;
 public class Paciente extends Persona {
-	private Acompañante acompañante;
+	private AcompaÃ±ante acompaÃ±ante;
 	private HistoriaClinica historia;
 	public static Vector<HistoriaClinica>pacientes=new Vector<>();
 	
 	
 	
-	public Acompañante getAcompañante() {
-		return acompañante;
+	public AcompaÃ±ante getAcompaÃ±ante() {
+		return acompaÃ±ante;
 	}
-	public void setAcompañante(Acompañante acompañante) {
-		this.acompañante = acompañante;
+	public void setAcompaÃ±ante(AcompaÃ±ante acompaÃ±ante) {
+		this.acompaÃ±ante = acompaÃ±ante;
 	}
 	public HistoriaClinica getHistoria() {
 		return historia;
