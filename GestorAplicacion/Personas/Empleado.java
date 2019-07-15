@@ -1,6 +1,6 @@
-package gestorAplicación.personas;
+package gestorAplicaciÃ³n.personas;
 import java.util.*;
-import gestorAplicación.documents.*;
+import gestorAplicaciÃ³n.documents.*;
 
 public class Empleado extends Persona{
 	
