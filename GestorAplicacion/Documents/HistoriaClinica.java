@@ -1,5 +1,5 @@
-package gestorAplicación.documents;
-import gestorAplicación.personas.*;
+package gestorAplicaciÃ³n.documents;
+import gestorAplicaciÃ³n.personas.*;
 
 public class HistoriaClinica {
 	
