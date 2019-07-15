@@ -1,4 +1,4 @@
-package gestorAplicación.personas;
+package gestorAplicaciÃ³n.personas;
 
 public abstract class Persona {
 	private String identificacion;
@@ -42,7 +42,7 @@ public abstract class Persona {
 	
 }
 
-class Acompañante extends Persona {
+class AcompaÃ±ante extends Persona {
 	private String parentezco;
 	private Paciente paciente;
 	
