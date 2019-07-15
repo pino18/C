@@ -1,4 +1,4 @@
-package gestorAplicación.documents;
+package gestorAplicaciÃ³n.documents;
 import java.util.*;
 
 public class Recibo {
