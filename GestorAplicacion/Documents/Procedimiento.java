@@ -1,4 +1,4 @@
-package gestorAplicación.documents;
+package gestorAplicaciÃ³n.documents;
 
 public class Procedimiento {
 	
