@@ -1,5 +1,5 @@
-package gestorAplicación.documents;
-import gestorAplicación.personas.*;
+package gestorAplicaciÃ³n.documents;
+import gestorAplicaciÃ³n.personas.*;
 import java.util.HashMap;
 public class Cita {
 	
