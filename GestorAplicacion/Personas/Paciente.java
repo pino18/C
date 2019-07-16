@@ -1,7 +1,7 @@
 package gestorAplicación.personas;
 import java.util.*;
 import gestorAplicación.documents.*;
-public class Paciente extends Persona {
+public class Paciente extends Persona{
 	private Acompañante acompañante;
 	private HistoriaClinica historia;
 	public static Vector<HistoriaClinica>pacientes=new Vector<>();
