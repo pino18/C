@@ -86,7 +86,7 @@ public class User extends Persona {
 		}
 		MenuDeConsola.newMenu(user, operations);
 		Data.users.put(username,user);
-		return "Ha sido creado"+'\n';
+		return "Ha sido creado";
 	}
 	
 	public static String editUser(User u,int option, String value){
@@ -104,7 +104,7 @@ public class User extends Persona {
 	
 	public static String deleteUser(String username){
 		Data.users.remove(username);
-		return "Ha sido eliminado"+'\n';
+		return "Ha sido eliminado";
 	}
 	
 	public static User getUserByUsername(String username){
