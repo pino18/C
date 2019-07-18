@@ -7,7 +7,7 @@ import BaseDatos.Data;
 import uiMain.MenuDeConsola;
 import uiMain.OpcionDeMenu;
 import uiMain.Main;
-import gestorAplicacion.users.Acompañante;
+import gestorAplicacion.users.AcompaÃ±ante;
 
 public class User extends Persona {
 	
@@ -81,12 +81,12 @@ public class User extends Persona {
 		if (user instanceof Paciente) {
 			//Agregar las opciones del menu de paciente (operations.add("#"))
 		}
-		else if (user instanceof Acompañante) {
-			//agregar las opciones del menu de acompañante (operations.add("#"))
+		else if (user instanceof AcompaÃ±ante) {
+			//agregar las opciones del menu de acompaÃ±ante (operations.add("#"))
 		}
 		MenuDeConsola.newMenu(user, operations);
 		Data.users.put(username,user);
-		return "Ha sido creado";
+		return "Ha sido creado"+'\n';
 	}
 	
 	public static String editUser(User u,int option, String value){
@@ -96,7 +96,7 @@ public class User extends Persona {
 			return "Nombre modificado";
 		case 2:
 			u.setPassword(value);
-			return "Contraseña modificada";
+			return "ContraseÃ±a modificada";
 		default:
 			return "Opcion no valida";
 		}
@@ -104,7 +104,7 @@ public class User extends Persona {
 	
 	public static String deleteUser(String username){
 		Data.users.remove(username);
-		return "Ha sido eliminado";
+		return "Ha sido eliminado"+'\n';
 	}
 	
 	public static User getUserByUsername(String username){
@@ -122,7 +122,7 @@ public class User extends Persona {
             	//Seteo el usuario
             	Main.user = u;
             	String bienvenido="";
-            	if (u instanceof Acompañante) {bienvenido=u.getFullname()+"  (Acompañante)";}
+            	if (u instanceof AcompaÃ±ante) {bienvenido=u.getFullname()+"  (AcompaÃ±ante)";}
             	else if (u instanceof Paciente) {bienvenido=u.getFullname()+"  (Paciente)";}
             	else if (u instanceof AdminUser) {bienvenido=u.getFullname()+"  (Admin)";}
             	else {bienvenido=u.getFullname()+"  (Invitado)";}
@@ -145,7 +145,7 @@ public class User extends Persona {
 			return "Nombre modificado";
 		case 2:
 			this.setPassword(value);
-			return "Contraseña modificada";
+			return "ContraseÃ±a modificada";
 		default:
 			return "Opcion no valida";
 		}
