@@ -1,14 +1,21 @@
 package gestorAplicacion.documents;
 import java.util.*;
 
+import BaseDatos.Data;
+
 public class Recibo {
-	private static Vector<Recibo>pendientes=new Vector<Recibo>();
-	private static Vector<Recibo>pagados=new Vector<Recibo>();
+	/*private static Vector<Recibo>pendientes=new Vector<Recibo>();
+	private static Vector<Recibo>pagados=new Vector<Recibo>();*/
 	private String ID;
 	private String Estado;
 	private Procedimiento procedimiento;
 	
-	
+	public Recibo(String i,String e, Procedimiento p) {
+		ID=i;
+		Estado=e;
+		procedimiento=p;
+		Data.reci.put(i, this);
+	}
 
 	public String getID() {
 		return ID;
@@ -29,7 +36,7 @@ public class Recibo {
 		this.procedimiento = procedimiento;
 	}
 	
-	public boolean pagar(int monto) {
+	/*public boolean pagar(int monto) {
 		boolean r;
 		if (this.pendientes.contains(this)) {
 			if(this.procedimiento.getValor()<=monto) {
@@ -46,5 +53,5 @@ public class Recibo {
 			r=false;
 		}
 		return r;
-	}
+	}*/
 }
