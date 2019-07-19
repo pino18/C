@@ -5,11 +5,12 @@ import java.util.Scanner;
 import BaseDatos.Data;
 import gestorAplicacion.users.AdminUser;
 import gestorAplicacion.users.User;
+import gestorAplicacion.users.Empleado;
 import uiMain.OpcionDeMenu;
 
-public class NewAdmin extends OpcionDeMenu {
+public class NewEmpleado extends OpcionDeMenu {
 	
-	public NewAdmin(String key){
+	public NewEmpleado(String key){
 		super(key);
 	}
 	
@@ -46,12 +47,20 @@ public class NewAdmin extends OpcionDeMenu {
 		String sexo = leer.next();
 		System.out.print("Ingrese su email: ");
 		String email = leer.next();
-		System.out.println(AdminUser.newAdminUser(identificacion, fullname, edad, telefono, sexo, username, email, password));
+		System.out.print("Ingrese su contrato: ");
+		String contrato = leer.next();
+		System.out.print("Ingrese su cargo: ");
+		String cargo = leer.next();
+		System.out.print("Ingrese su sueldo: ");
+		int sueldo = leer.nextInt();
+		System.out.print("Ingrese su horario: ");
+		String horario = leer.next();
+		System.out.println(User.newUser(new Empleado(contrato, cargo, sueldo, horario), identificacion, fullname, edad, telefono, sexo, username, email, password));
 	}
 
 	@Override
 	public String toString() {
-		return "Crear nuevo usuario admin";
+		return "Crear nuevo usuario empleado";
 	}
 
 }

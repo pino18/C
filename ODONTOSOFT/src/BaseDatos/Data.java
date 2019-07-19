@@ -13,8 +13,9 @@ import java.util.Map;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 import gestorAplicacion.documents.Procedimiento;
 import gestorAplicacion.documents.Recibo;
-import gestorAplicacion.users.Acompañante;
+import gestorAplicacion.users.Acompaniante;
 import gestorAplicacion.users.AdminUser;
+import gestorAplicacion.users.Empleado;
 import gestorAplicacion.users.Paciente;
 import gestorAplicacion.users.User;
 import uiMain.MenuDeConsola;
@@ -34,9 +35,10 @@ public class Data {
 		loadAdminUsers(ruta);
 		loadPaciUsers(ruta);
 		loadAcomUsers(ruta);
+		loadEmpleUsers(ruta);
 		loadMenus(ruta);
-		loadRecibos(ruta);
 		loadProcedimientos(ruta);
+		loadRecibos(ruta);
 	}
 
 	private static void loadProcedimientos(String ruta) {
@@ -147,7 +149,37 @@ public class Data {
 					String password = user[7];
 					String usurpa = user[9];
 					String parentezco = user[8];
-					User.newUser(new Acompañante(usurpa, parentezco), identificacion, fullname, edad, telefono, sexo,
+					User.newUser(new Acompaniante(usurpa, parentezco), identificacion, fullname, edad, telefono, sexo,
+							username, email, password);
+				}
+			}
+			br.close();
+		} catch (Exception e) {
+			// Error al leer
+		}
+	}
+	
+	private static void loadEmpleUsers(String ruta) {
+		try {
+			FileReader fr = new FileReader(ruta + "empleUsers.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				if (!line.isEmpty()) {
+					String[] user = line.split(";");
+					String username = user[0];
+					String identificacion = user[1];
+					String fullname = user[2];
+					String edad = user[3];
+					String telefono = user[4];
+					String sexo = user[5];
+					String email = user[6];
+					String password = user[7];
+					String contrato = user[8];
+					String cargo = user[9];
+					int sueldo = Integer.parseInt(user[10]);
+					String horario = user[11];
+					User.newUser(new Empleado(contrato, cargo, sueldo, horario), identificacion, fullname, edad, telefono, sexo,
 							username, email, password);
 				}
 			}
@@ -212,14 +244,14 @@ public class Data {
 	
 	private static void saveRecibos(String ruta) {
 		try {
-			FileWriter fw = new FileWriter(ruta + "reci.txt");
+			FileWriter fw = new FileWriter(ruta + "recibos.txt");
 			PrintWriter pw = new PrintWriter(fw);
 			for (Map.Entry<String, Recibo> Recibo : reci.entrySet()) {
 				Recibo RObj = Recibo.getValue();
 				String line = RObj.getID() + ";";
 				line += RObj.getEstado() + ";";
-				line += RObj.getProcedimiento().getTipo() + ";";
-				
+				line += RObj.getProcedimiento().getTipo();
+				pw.println(line);
 			}
 			pw.close();
 
@@ -234,10 +266,12 @@ public class Data {
 			FileWriter fwAdmin = new FileWriter(ruta + "adminUsers.txt");
 			FileWriter fwAcom = new FileWriter(ruta + "acompUsers.txt");
 			FileWriter fwPa = new FileWriter(ruta + "paciUsers.txt");
+			FileWriter fwEm = new FileWriter(ruta + "empleUsers.txt");
 			PrintWriter pw = new PrintWriter(fw);
 			PrintWriter pwAdmin = new PrintWriter(fwAdmin);
 			PrintWriter pwAcom = new PrintWriter(fwAcom);
 			PrintWriter pwPa = new PrintWriter(fwPa);
+			PrintWriter pwEm = new PrintWriter(fwEm);
 			for (Map.Entry<String, User> user : users.entrySet()) {
 				User userObj = user.getValue();
 				String line = userObj.getUsername() + ";";
@@ -251,10 +285,16 @@ public class Data {
 				if (userObj instanceof AdminUser) {
 					pwAdmin.println(line);
 
-				} else if (userObj instanceof Acompañante) {
-					line += ";" + ((Acompañante) userObj).getParentezco() + ";";
-					line += ((Acompañante) userObj).getPaciente().getUsername();
+				} else if (userObj instanceof Acompaniante) {
+					line += ";" + ((Acompaniante) userObj).getParentezco() + ";";
+					line += ((Acompaniante) userObj).getPaciente().getUsername();
 					pwAcom.println(line);
+				} else if (userObj instanceof Empleado) {
+					line += ";" + ((Empleado) userObj).getContrato() + ";";
+					line += ((Empleado) userObj).getCargo() + ";";
+					line += ((Empleado) userObj).getSueldo() + ";";
+					line += ((Empleado) userObj).getHorario() + ";";
+					pwEm.println(line);
 				} else if (userObj instanceof Paciente) {
 					pwPa.println(line);
 				} else {
@@ -265,6 +305,7 @@ public class Data {
 			pwAdmin.close();
 			pwAcom.close();
 			pwPa.close();
+			pwEm.close();
 
 		} catch (IOException ioObj) {
 			// Ocurrio algo al guardar en txt los datos

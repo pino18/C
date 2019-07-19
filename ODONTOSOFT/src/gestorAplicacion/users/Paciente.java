@@ -7,7 +7,7 @@ import gestorAplicacion.documents.HistoriaClinica;
 import gestorAplicacion.documents.Recibo;
 
 public class Paciente extends User{
-	private Acompañante acompañante;
+	private Acompaniante acompañante;
 	private HistoriaClinica historia;
 	
 	public Paciente(){
@@ -20,13 +20,13 @@ public class Paciente extends User{
 	}
 	
 	
-	public Acompañante getAcompañante() {
+	public Acompaniante getAcompañante() {
 		return acompañante;
 	}
-	public void SetAcompañante(Acompañante acompañante) {
+	public void SetAcompañante(Acompaniante acompañante) {
 		this.acompañante=acompañante;
 	}
-	public void setAcompañante(Acompañante acompañante) {
+	public void setAcompañante(Acompaniante acompañante) {
 		this.acompañante = acompañante;
 	}
 	public HistoriaClinica getHistoria() {
@@ -38,7 +38,7 @@ public class Paciente extends User{
 	
 	// Fin Setters and Getters
 	
-	
+/*
 	public void SolicitarCita(Empleado emp, String fe, String h) {
 		if (emp.getCargo()=="medico") {
 			if(emp.verificardisponible(fe, h)==true) {
@@ -70,5 +70,5 @@ public class Paciente extends User{
 		return(r.pagar(monto));
 		
 		
-	}
+	}*/
 }

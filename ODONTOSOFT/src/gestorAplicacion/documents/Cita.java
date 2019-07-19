@@ -89,7 +89,7 @@ public class Cita {
 	}
 	//Fin Setters and Getters
 	
-	
+/*
 	public boolean cambiarhora(String nfe, String nh) {
 		boolean r = false;
 		String nf=nfe+" "+nh;
@@ -109,7 +109,7 @@ public class Cita {
 	public void finalize() {
 		this.Empleado.citasasignadas.remove(this.Fecha+" "+this.Hora);
 		
-	}
+	}*/
 
 	
 }

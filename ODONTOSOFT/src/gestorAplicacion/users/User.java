@@ -7,7 +7,7 @@ import BaseDatos.Data;
 import uiMain.MenuDeConsola;
 import uiMain.OpcionDeMenu;
 import uiMain.Main;
-import gestorAplicacion.users.Acompañante;
+import gestorAplicacion.users.Acompaniante;
 
 public class User extends Persona {
 	
@@ -77,12 +77,15 @@ public class User extends Persona {
 		user.setPassword(password);
 		
 		//Menu por defecto al crear un nuevo usuario
-		String [] operations = {"5"};
+		String [] operations = {"12"};
 		if (user instanceof Paciente) {
 			//Agregar las opciones del menu de paciente (operations.add("#"))
 		}
-		else if (user instanceof Acompañante) {
+		else if (user instanceof Acompaniante) {
 			//agregar las opciones del menu de acompañante (operations.add("#"))
+		}
+		else if (user instanceof Empleado) {
+			//agregar las opciones del menu de empleado (operations.add("#"))
 		}
 		MenuDeConsola.newMenu(user, operations);
 		Data.users.put(username,user);
@@ -122,9 +125,10 @@ public class User extends Persona {
             	//Seteo el usuario
             	Main.user = u;
             	String bienvenido="";
-            	if (u instanceof Acompañante) {bienvenido=u.getFullname()+"  (Acompañante)";}
+            	if (u instanceof Acompaniante) {bienvenido=u.getFullname()+"  (Acompañante) de "+ ((Acompaniante) u).getPaciente().getFullname();}
             	else if (u instanceof Paciente) {bienvenido=u.getFullname()+"  (Paciente)";}
             	else if (u instanceof AdminUser) {bienvenido=u.getFullname()+"  (Admin)";}
+            	else if (u instanceof Empleado) {bienvenido=u.getFullname()+"  (Empleado)";}
             	else {bienvenido=u.getFullname()+"  (Invitado)";}
                 return "Bienvenido "+bienvenido;
             }

@@ -9,6 +9,7 @@ import uiMain.operations.CancelarCita;
 import uiMain.operations.ConsultarHistoria;
 import uiMain.operations.Login;
 import uiMain.operations.NewAdmin;
+import uiMain.operations.NewEmpleado;
 import uiMain.operations.PagarRecibo;
 import uiMain.operations.RemoveOpt;
 import uiMain.operations.Renunciar;
@@ -56,16 +57,17 @@ public class Main {
 		Data.operations.put("2", new AddOpt("2"));
 		Data.operations.put("3", new RemoveOpt("3"));
 		Data.operations.put("4", new NewAdmin("4"));
+		Data.operations.put("5", new NewEmpleado("5"));
 		
 		//Operaciones de mis usuarios
 		
-		Data.operations.put("5", new SolicitarCita("5"));
-		Data.operations.put("6", new CancelarCita("6"));
-		Data.operations.put("7", new PagarRecibo("7"));
-		Data.operations.put("8", new RetirarEps("8"));
-		Data.operations.put("9", new ConsultarHistoria("8"));
-		Data.operations.put("10", new Renunciar("10"));
-		Data.operations.put("11", new SignOut("11"));
+		Data.operations.put("6", new SolicitarCita("6"));
+		Data.operations.put("7", new CancelarCita("7"));
+		Data.operations.put("8", new PagarRecibo("8"));
+		Data.operations.put("9", new RetirarEps("9"));
+		Data.operations.put("10", new ConsultarHistoria("10"));
+		Data.operations.put("11", new Renunciar("11"));
+		Data.operations.put("12", new SignOut("12"));
 		//Cargar los datos
 		Data.loadData();
 		

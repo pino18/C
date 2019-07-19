@@ -1,18 +1,35 @@
 package gestorAplicacion.users;
 import java.util.*;
 
-public class Empleado extends Persona{
+import BaseDatos.Data;
+
+public class Empleado extends User{
 	
 	
 	
-	public static Vector <Empleado> medicos=new Vector<>();
+	/*public static Vector <Empleado> medicos=new Vector<>();
 	public static Vector <Empleado> secretarios=new Vector<>();
-	public TreeSet<String>citasasignadas=new TreeSet<String>();
+	public TreeSet<String>citasasignadas=new TreeSet<String>();*/
 	private String contrato;
 	private String cargo;
 	private int sueldo;
 	private String horario;
 	
+	public Empleado(){
+		super();
+	}
+	
+	public Empleado(String contrato, String cargo, int sueldo, String horario) {
+		this.contrato=contrato;
+		this.cargo=cargo;
+		this.sueldo=sueldo ;
+		this.horario=horario;
+	}
+	
+	public Empleado(String identificacion, String fullname, String edad, String telefono, String sexo, String username, String email, String password) {
+		super(identificacion, fullname, edad, telefono, sexo, username, email, password);
+		Data.users.put(username, this);
+	}
 	
 
 	public String getContrato() {
@@ -41,7 +58,7 @@ public class Empleado extends Persona{
 	}
 	
 	
-
+/*
 	public boolean verificardisponible(String fe,String h) {
 		String veri=fe+" "+h;
 		boolean r;
@@ -82,7 +99,7 @@ public class Empleado extends Persona{
 		}
 		medicos.remove(this);
 		
-	}
+	}*/
 	
 	
 

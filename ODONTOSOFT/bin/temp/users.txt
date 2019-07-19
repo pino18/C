@@ -1,2 +1,1 @@
-alemando;alejo;alejo@email.com;12345
-fulqjulio;julian;fulqjulio@gmail.com;holamundo
+fulqjulio1;345678232;Julian;18;1243567823;H;fuljejnfsdnkfjsdfsd@gmail.com;holamundo
