@@ -1,17 +1,22 @@
 package uiMain;
 
-import gestorAplicacion.users.User;
-import uiMain.operations.AddOpt;
-import uiMain.operations.Login;
-import uiMain.operations.NewAdmin;
-import uiMain.operations.RemoveOpt;
-import uiMain.operations.SeeOpt;
-import uiMain.operations.SignOut;
-import uiMain.operations.SignUp;
-
 import java.util.ArrayList;
 
 import BaseDatos.Data;
+import gestorAplicacion.users.User;
+import uiMain.operations.AddOpt;
+import uiMain.operations.CancelarCita;
+import uiMain.operations.ConsultarHistoria;
+import uiMain.operations.Login;
+import uiMain.operations.NewAdmin;
+import uiMain.operations.PagarRecibo;
+import uiMain.operations.RemoveOpt;
+import uiMain.operations.Renunciar;
+import uiMain.operations.RetirarEps;
+import uiMain.operations.SeeOpt;
+import uiMain.operations.SignOut;
+import uiMain.operations.SignUp;
+import uiMain.operations.SolicitarCita;
 
 public class Main {
 
@@ -53,8 +58,14 @@ public class Main {
 		Data.operations.put("4", new NewAdmin("4"));
 		
 		//Operaciones de mis usuarios
-		Data.operations.put("5", new SignOut("5"));
 		
+		Data.operations.put("5", new SolicitarCita("5"));
+		Data.operations.put("6", new CancelarCita("6"));
+		Data.operations.put("7", new PagarRecibo("7"));
+		Data.operations.put("8", new RetirarEps("8"));
+		Data.operations.put("9", new ConsultarHistoria("8"));
+		Data.operations.put("10", new Renunciar("10"));
+		Data.operations.put("11", new SignOut("11"));
 		//Cargar los datos
 		Data.loadData();
 		
