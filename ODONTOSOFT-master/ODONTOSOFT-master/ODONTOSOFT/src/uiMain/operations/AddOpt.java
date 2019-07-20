@@ -17,7 +17,7 @@ public class AddOpt extends OpcionDeMenu{
 		System.out.print("Ingrese el nombre de usuario: ");
 		String username = leer.next();
 		User user = User.getUserByUsername(username);
-		OpcionDeMenu.seeAllOperations();
+		OpcionDeMenu.seeAllOperations1();
 		System.out.print("Ingrese el numero de la funcionalidad a añadir: ");
 		String opt = leer.next();
 		user.getMenu().añadirOpcion(opt);

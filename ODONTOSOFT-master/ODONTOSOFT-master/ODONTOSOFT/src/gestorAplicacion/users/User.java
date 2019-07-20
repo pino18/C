@@ -85,7 +85,7 @@ public class User extends Persona {
 			return "Ha sido creado";
 		}
 		else if (user instanceof Acompaniante) {
-			//agregar las opciones del menu de acompaÃ±ante (operations.add("#"))
+			//agregar las opciones del menu de acompañante (operations.add("#"))
 			String [] operations = {"10","12"};
 			MenuDeConsola.newMenu(user, operations);
 			Data.users.put(username,user);
@@ -108,7 +108,7 @@ public class User extends Persona {
 			return "Nombre modificado";
 		case 2:
 			u.setPassword(value);
-			return "ContraseÃ±a modificada";
+			return "Contraseña modificada";
 		default:
 			return "Opcion no valida";
 		}
