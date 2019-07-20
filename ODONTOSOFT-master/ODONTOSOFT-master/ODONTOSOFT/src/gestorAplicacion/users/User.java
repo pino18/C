@@ -77,19 +77,28 @@ public class User extends Persona {
 		user.setPassword(password);
 		
 		//Menu por defecto al crear un nuevo usuario
-		String [] operations = {"12"};
 		if (user instanceof Paciente) {
 			//Agregar las opciones del menu de paciente (operations.add("#"))
+			String [] operations = {"6","7","8","9","10","12"};
+			MenuDeConsola.newMenu(user, operations);
+			Data.users.put(username,user);
+			return "Ha sido creado";
 		}
 		else if (user instanceof Acompaniante) {
-			//agregar las opciones del menu de acompañante (operations.add("#"))
+			//agregar las opciones del menu de acompaÃ±ante (operations.add("#"))
+			String [] operations = {"10","12"};
+			MenuDeConsola.newMenu(user, operations);
+			Data.users.put(username,user);
+			return "Ha sido creado";
 		}
 		else if (user instanceof Empleado) {
 			//agregar las opciones del menu de empleado (operations.add("#"))
+			String [] operations = {"11","12"};
+			MenuDeConsola.newMenu(user, operations);
+			Data.users.put(username,user);
+			return "Ha sido creado";
 		}
-		MenuDeConsola.newMenu(user, operations);
-		Data.users.put(username,user);
-		return "Ha sido creado";
+		return"";
 	}
 	
 	public static String editUser(User u,int option, String value){
@@ -99,7 +108,7 @@ public class User extends Persona {
 			return "Nombre modificado";
 		case 2:
 			u.setPassword(value);
-			return "Contraseña modificada";
+			return "ContraseÃ±a modificada";
 		default:
 			return "Opcion no valida";
 		}
@@ -125,7 +134,7 @@ public class User extends Persona {
             	//Seteo el usuario
             	Main.user = u;
             	String bienvenido="";
-            	if (u instanceof Acompaniante) {bienvenido=u.getFullname()+"  (Acompañante) de "+ ((Acompaniante) u).getPaciente().getFullname();}
+            	if (u instanceof Acompaniante) {bienvenido=u.getFullname()+"  (AcompaÃ±ante) de "+ ((Acompaniante) u).getPaciente().getFullname();}
             	else if (u instanceof Paciente) {bienvenido=u.getFullname()+"  (Paciente)";}
             	else if (u instanceof AdminUser) {bienvenido=u.getFullname()+"  (Admin)";}
             	else if (u instanceof Empleado) {bienvenido=u.getFullname()+"  (Empleado)";}
