@@ -134,7 +134,7 @@ public class User extends Persona {
             	//Seteo el usuario
             	Main.user = u;
             	String bienvenido="";
-            	if (u instanceof Acompaniante) {bienvenido=u.getFullname()+"  (AcompaÃ±ante) de "+ ((Acompaniante) u).getPaciente().getFullname();}
+            	if (u instanceof Acompaniante) {bienvenido=u.getFullname()+"  (Acompañante) de "+ ((Acompaniante) u).getPaciente().getFullname();}
             	else if (u instanceof Paciente) {bienvenido=u.getFullname()+"  (Paciente)";}
             	else if (u instanceof AdminUser) {bienvenido=u.getFullname()+"  (Admin)";}
             	else if (u instanceof Empleado) {bienvenido=u.getFullname()+"  (Empleado)";}
