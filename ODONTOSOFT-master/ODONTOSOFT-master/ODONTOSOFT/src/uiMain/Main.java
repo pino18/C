@@ -1,7 +1,5 @@
 package uiMain;
-
 import java.util.ArrayList;
-
 import BaseDatos.Data;
 import gestorAplicacion.users.User;
 import uiMain.operations.AddOpt;
@@ -18,17 +16,12 @@ import uiMain.operations.SeeOpt;
 import uiMain.operations.SignOut;
 import uiMain.operations.SignUp;
 import uiMain.operations.SolicitarCita;
-
 public class Main {
-
 	public static User user;
-	
 	public static MenuDeConsola menuGuestUser;
-	
 	public static void main(String[] args) {
 		Main.startConfigs();
 		while(true) {
-			
 			try {
 				if(Main.user != null){
 					Main.user.getMenu().lanzarMenu();
