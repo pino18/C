@@ -336,7 +336,7 @@ public class Data {
 				line += CObj.getPaciente().getUsername()+";";
 				line += CObj.getTipoConsulta()+";";
 				line += CObj.getEstado()+";";
-				line += CObj.getProcedimiento().getTipo();
+				//line += CObj.getProcedimiento().getTipo();
 				line += CObj.getEmpleado().getUsername();
 				
 				pw.println(line);
