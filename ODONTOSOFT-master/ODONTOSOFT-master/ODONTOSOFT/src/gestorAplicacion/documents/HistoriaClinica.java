@@ -1,11 +1,23 @@
 package gestorAplicacion.documents;
 
+import BaseDatos.Data;
 import gestorAplicacion.users.Paciente;
 
 public class HistoriaClinica {
 	private String ID;
-	private Paciente paciente;
-	private String informacion;
+	private Paciente Paciente;
+	private int NroCitasRealizadas;
+	private String Informacion;
+	
+	
+	public HistoriaClinica(String Id, Paciente P,int NCR,String I) {
+		ID=Id;
+		Paciente=P;
+		NroCitasRealizadas=NCR;
+		Informacion=I;
+		Data.historias.put(Id,this);
+	}
+	
 	
 
 	public String getID() {
@@ -15,16 +27,22 @@ public class HistoriaClinica {
 		ID = iD;
 	}
 	public Paciente getPaciente() {
-		return paciente;
+		return Paciente;
 	}
 	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
+		this.Paciente = paciente;
 	}
 	public String getInformacion() {
-		return informacion;
+		return Informacion;
 	}
 	public void setInformacion(String informacion) {
-		this.informacion = informacion;
+		this.Informacion = informacion;
+	}
+	public int getNroCitasRealizadas() {
+		return NroCitasRealizadas;
+	}
+	public void setNroCitasRealizadas(int NCR) {
+		this.NroCitasRealizadas = NCR;
 	}
 }
 
