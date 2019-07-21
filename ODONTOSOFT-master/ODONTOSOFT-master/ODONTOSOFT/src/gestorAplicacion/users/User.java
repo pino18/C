@@ -93,7 +93,7 @@ public class User extends Persona {
 		}
 		else if (user instanceof Empleado) {
 			//agregar las opciones del menu de empleado (operations.add("#"))
-			String [] operations = {"11","12"};
+			String [] operations = {"11","12","13","14"};
 			MenuDeConsola.newMenu(user, operations);
 			Data.users.put(username,user);
 			return "Ha sido creado";
