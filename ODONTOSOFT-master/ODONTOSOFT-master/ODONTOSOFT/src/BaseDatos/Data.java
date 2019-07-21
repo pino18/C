@@ -11,6 +11,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
+
+import gestorAplicacion.documents.Cita;
+import gestorAplicacion.documents.HistoriaClinica;
 import gestorAplicacion.documents.Procedimiento;
 import gestorAplicacion.documents.Recibo;
 import gestorAplicacion.users.Acompaniante;
@@ -27,7 +30,11 @@ public class Data {
 	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
 	public static HashMap<String, Procedimiento> proced = new HashMap<String, Procedimiento>();
 	public static HashMap<String, Recibo> reci = new HashMap<String, Recibo>();
+	public static HashMap<String, Cita> citas = new HashMap<String, Cita>();
+	public static HashMap<String, Cita> citasByN = new HashMap<String, Cita>();
+	public static HashMap<String, HistoriaClinica> historias = new HashMap<String, HistoriaClinica>();
 
+	
 	public static void loadData() {
 		createFilesAndDirs();
 		String ruta = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -39,8 +46,60 @@ public class Data {
 		loadMenus(ruta);
 		loadProcedimientos(ruta);
 		loadRecibos(ruta);
+		loadCitas(ruta);
+		loadHistorias(ruta);
 	}
+	
+	private static void loadHistorias(String ruta) {
+		try {
+			FileReader fr = new FileReader(ruta + "historias.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				if (!line.isEmpty()) {
+					String[] user = line.split(";");
+					String ID = user[0];
+					Paciente P = (Paciente) users.get(user[1]);
+					int NCR= Integer.parseInt(user[2]);
+					String I = user[3];
 
+					new HistoriaClinica(ID,P,NCR,I);
+				}
+			}
+			br.close();
+		} catch (Exception e) {
+			// Error al leer
+		}
+	}
+	
+	private static void loadCitas(String ruta) {
+		try {
+			FileReader fr = new FileReader(ruta + "citas.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				if (!line.isEmpty()) {
+					String[] user = line.split(";");
+					String NroCita = user[0];
+					String Fecha = user[1];
+					String Hora = user[2];
+					String Lugar = user[3];
+					Paciente Paciente = (Paciente) users.get(user[4]);
+					String TipoConsulta = user[5];
+					String Estado = user[6];
+					Procedimiento Procedimiento = proced.get(user[7]);
+					Empleado Empleado = (Empleado) users.get(user[8]);
+
+					new Cita(NroCita,Fecha,Hora,Lugar,Paciente,TipoConsulta,Estado,Procedimiento,Empleado);
+				}
+			}
+			br.close();
+		} catch (Exception e) {
+			// Error al leer
+		}
+	}
+	
+	
 	private static void loadProcedimientos(String ruta) {
 		try {
 			FileReader fr = new FileReader(ruta + "proced.txt");
@@ -240,6 +299,53 @@ public class Data {
 		saveUsers(ruta);
 		saveMenus(ruta);
 		saveRecibos(ruta);
+		saveCitas(ruta);
+		saveHistorias(ruta);
+	}
+	private static void saveHistorias(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta + "historias.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			for (Map.Entry<String, HistoriaClinica> HistoriaClinica : historias.entrySet()) {
+				HistoriaClinica HObj = HistoriaClinica.getValue();
+				String line = HObj.getID() + ";";
+				line += HObj.getPaciente().getUsername()+";";
+				line += HObj.getNroCitasRealizadas() + ";";
+				line += HObj.getInformacion();
+				
+				pw.println(line);
+			}
+			pw.close();
+
+		} catch (IOException ioObj) {
+			// Ocurrio algo al guardar en txt los datos
+		}
+	}
+	
+	
+	private static void saveCitas(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta + "citas.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			for (Map.Entry<String, Cita> Cita : citas.entrySet()) {
+				Cita CObj = Cita.getValue();
+				String line = CObj.getNroCita() + ";";
+				line += CObj.getFecha() + ";";
+				line += CObj.getHora()+";";
+				line += CObj.getLugar()+";";
+				line += CObj.getPaciente().getUsername()+";";
+				line += CObj.getTipoConsulta()+";";
+				line += CObj.getEstado()+";";
+				line += CObj.getProcedimiento().getTipo();
+				line += CObj.getEmpleado().getUsername();
+				
+				pw.println(line);
+			}
+			pw.close();
+
+		} catch (IOException ioObj) {
+			// Ocurrio algo al guardar en txt los datos
+		}
 	}
 	
 	private static void saveRecibos(String ruta) {
