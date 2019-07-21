@@ -68,8 +68,8 @@ public class Main {
 		Data.operations.put("10", new ConsultarHistoria("10"));
 		Data.operations.put("11", new Renunciar("11"));
 		Data.operations.put("12", new SignOut("12"));
-		Data.operations.put("11", new ModificarHistoria("13"));
-		Data.operations.put("12", new ModificarCita("14"));
+		Data.operations.put("13", new ModificarHistoria("13"));
+		Data.operations.put("14", new ModificarCita("14"));
 		//Cargar los datos
 		Data.loadData();
 		
