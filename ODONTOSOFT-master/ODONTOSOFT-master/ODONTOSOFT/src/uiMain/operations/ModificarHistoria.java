@@ -9,6 +9,9 @@ import gestorAplicacion.users.User;
 import uiMain.Main;
 import uiMain.OpcionDeMenu;
 public class ModificarHistoria extends OpcionDeMenu{
+	public ModificarHistoria(String key) {
+		super(key);
+	}
 	public void ejecutar() {
 		User P= Main.user;
 		String ID=P.getIdentificacion();
