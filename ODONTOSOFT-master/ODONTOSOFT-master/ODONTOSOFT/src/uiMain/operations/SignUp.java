@@ -2,6 +2,7 @@ package uiMain.operations;
 
 import java.util.Scanner;
 import gestorAplicacion.users.Paciente;
+import gestorAplicacion.documents.HistoriaClinica;
 import gestorAplicacion.users.Acompaniante;
 import gestorAplicacion.users.User;
 import uiMain.OpcionDeMenu;
@@ -46,6 +47,7 @@ public class SignUp extends OpcionDeMenu {
 			case "1":
 				System.out.print(User.newUser(new Paciente(), identificacion, fullname, edad, telefono, sexo, username, email, password));
 				System.out.println(User.login(username, password));
+				new HistoriaClinica(identificacion,username,0,"ninguna");
 				break;
 			case "2":
 				String usurpa="";
