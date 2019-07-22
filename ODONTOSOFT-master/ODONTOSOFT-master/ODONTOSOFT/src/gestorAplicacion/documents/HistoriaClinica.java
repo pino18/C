@@ -47,6 +47,9 @@ public class HistoriaClinica {
 	public void setInformacion(String informacion) {
 		this.Informacion = informacion;
 	}
+	public void setInformacionNueva(String informacion) {
+		this.Informacion += informacion;
+	}
 	public int getNroCitasRealizadas() {
 		return NroCitasRealizadas;
 	}
