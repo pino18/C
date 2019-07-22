@@ -16,7 +16,7 @@ public class ModificarHistoria extends OpcionDeMenu{
 		User P= Main.user;
 		String ID=P.getIdentificacion();
 		HistoriaClinica HC= Data.historias.get(ID);
-		System.out.println("Ingrese la nueva información clinica, escriba #(Separado por espacio) para terminar: ");
+		System.out.println("Ingrese la nueva informaciÃ³n clinica, escriba #(Separado por espacio) para terminar: ");
 		Scanner leer = new Scanner(System.in);
 		String info ="";
 		while(true){
@@ -40,3 +40,4 @@ public class ModificarHistoria extends OpcionDeMenu{
 		return "Modificar Historia Clinica";
 	}
 }
+
