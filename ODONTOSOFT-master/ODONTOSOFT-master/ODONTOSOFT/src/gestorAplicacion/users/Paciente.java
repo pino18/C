@@ -7,8 +7,7 @@ import gestorAplicacion.documents.HistoriaClinica;
 import gestorAplicacion.documents.Recibo;
 
 public class Paciente extends User{
-	private Acompaniante acompañante;
-	private HistoriaClinica historia;
+	private Acompaniante acompaÃ±ante;
 	
 	public Paciente(){
 		super();
@@ -20,20 +19,14 @@ public class Paciente extends User{
 	}
 	
 	
-	public Acompaniante getAcompañante() {
-		return acompañante;
+	public Acompaniante getAcompaÃ±ante() {
+		return acompaÃ±ante;
 	}
-	public void SetAcompañante(Acompaniante acompañante) {
-		this.acompañante=acompañante;
+	public void SetAcompaÃ±ante(Acompaniante acompaÃ±ante) {
+		this.acompaÃ±ante=acompaÃ±ante;
 	}
-	public void setAcompañante(Acompaniante acompañante) {
-		this.acompañante = acompañante;
-	}
-	public HistoriaClinica getHistoria() {
-		return historia;
-	}
-	public void setHistoria(HistoriaClinica historia) {
-		this.historia = historia;
+	public void setAcompaÃ±ante(Acompaniante acompaÃ±ante) {
+		this.acompaÃ±ante = acompaÃ±ante;
 	}
 	
 	// Fin Setters and Getters
