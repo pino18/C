@@ -26,7 +26,9 @@ public class HistoriaClinica {
 		Data.historias.put(Id,this);
 	}
 	
-
+	public void AddNroCitasRealizadas() {
+		this.NroCitasRealizadas = this.NroCitasRealizadas+1;
+	}
 	public String getID() {
 		return ID;
 	}
