@@ -6,6 +6,7 @@ import gestorAplicacion.users.Paciente;
 import gestorAplicacion.users.User;
 import uiMain.OpcionDeMenu;
 import gestorAplicacion.documents.Cita;
+import gestorAplicacion.documents.HistoriaClinica;
 import gestorAplicacion.documents.Procedimiento;
 
 public class ModificarCita extends OpcionDeMenu {
@@ -18,12 +19,12 @@ public class ModificarCita extends OpcionDeMenu {
 		Scanner leer = new Scanner(System.in);
 		System.out.print("Dijite el numero de la cita a modificar: ");
 		String NC = leer.next();
-		System.out.println("Seleccione una opción:");
+		System.out.println("Seleccione una opciÃ³n:");
 		System.out.println("1: cambiar el estado de una cita");
 		System.out.println("2: ingresar el procedimiento realizado en la cita");
 		int OP = leer.nextInt();
 		if (OP == 1) {
-			System.out.println("Seleccione el estado:");
+			System.out.println("Seleccione el estado a cambiar:");
 			System.out.println("1: Pendiente ");
 			System.out.println("2: Realizada");
 			int OP2 = leer.nextInt();
@@ -37,19 +38,27 @@ public class ModificarCita extends OpcionDeMenu {
 				Cita C =Data.citasByN.get(NC);
 				String FH= C.getFecha()+C.getHora();
 				C.setEstado("realizada");
+				Paciente P = C.getPaciente();
+				HistoriaClinica H= Data.historias.get(P.getIdentificacion());
+				H.AddNroCitasRealizadas();
+				Data.historias.put(H.getID(), H);
 				Data.citas.put(FH, C);
 				Data.citasByN.put(NC, C);
 			}
 		} else if (OP == 2) {
 			while(true) {
 				System.out.print("Ingresar el procedimiento realizado en la cita: ");
-				String P=leer.next();
-				if(Data.proced.containsKey(P)) {
-					Procedimiento PRO =Data.proced.get(P);
+				String input=leer.next();
+				if(Data.proced.containsKey(input)) {
+					Procedimiento PRO =Data.proced.get(input);
 					Cita C =Data.citasByN.get(NC);
 					String FH= C.getFecha()+C.getHora();
 					C.setEstado("realizada");
 					C.setProcedimiento(PRO);
+					Paciente P = C.getPaciente();
+					HistoriaClinica H= Data.historias.get(P.getIdentificacion());
+					H.AddNroCitasRealizadas();
+					Data.historias.put(H.getID(), H);
 					Data.citas.put(FH, C);
 					Data.citasByN.put(NC, C);
 					break;
