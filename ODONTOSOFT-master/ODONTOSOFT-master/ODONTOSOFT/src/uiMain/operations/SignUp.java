@@ -19,18 +19,18 @@ public class SignUp extends OpcionDeMenu {
 				System.out.println("Usuario ya existente");
 				continue;
 			}
-			System.out.print("Ingrese su contraseña: ");
+			System.out.print("Ingrese su contraseÃ±a: ");
 			password = leer.next();
-			System.out.print("Verifique su contraseña: ");
+			System.out.print("Verifique su contraseÃ±a: ");
 			if (!password.equals(leer.next())) {
-				System.out.println("Las contraseñas no coinciden");
+				System.out.println("Las contraseÃ±as no coinciden");
 				continue;
 			}
 			break;
 		}
 		System.out.print("Ingrese su nombre y apellido: ");
-		String fullname = leer.next();
-		System.out.print("Ingrese su identificación: ");
+		String fullname = leer.nextLine();
+		System.out.print("Ingrese su identificaciÃ³n: ");
 		String identificacion = leer.next();
 		System.out.print("Ingrese su edad: ");
 		String edad = leer.next();
@@ -40,7 +40,7 @@ public class SignUp extends OpcionDeMenu {
 		String sexo = leer.next();
 		System.out.print("Ingrese su email: ");
 		String email = leer.next();
-		System.out.print("Usted es : 1 Paciente | 2 Acompañante| 3 Invitado \n");
+		System.out.print("Usted es : 1 Paciente | 2 AcompaÃ±ante| 3 Invitado \n");
 		String usur = leer.next();
 		switch(usur) {
 			case "1":
@@ -50,7 +50,7 @@ public class SignUp extends OpcionDeMenu {
 			case "2":
 				String usurpa="";
 				while(true) {
-					System.out.print("Ingrese el usuario de quien usted es acompañante: ");
+					System.out.print("Ingrese el usuario de quien usted es acompaÃ±ante: ");
 					usurpa = leer.next();
 					if (User.getUserByUsername(username)==null) {
 						System.out.print("El usuario no existe ");
