@@ -1,3 +1,0 @@
-001232;pendiente;Limpieza
-001233;pagado;Limpieza
-001231;pagado;ExtraccionMuela
