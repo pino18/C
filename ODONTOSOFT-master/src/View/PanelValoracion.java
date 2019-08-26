@@ -1,22 +1,44 @@
 package View;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import java.awt.*;
+import javax.swing.*;
 import Control.ControlOption;
 
-public class PanelValoracion extends JPanel{
-	
+public class PanelValoracion extends JPanel {
+
 	JButton volver;
-	
+	JButton enviar;
+
 	public PanelValoracion() {
-		JPanel PanelPP = new JPanel();
-		JLabel val = new JLabel("Aquí va el panel de valoración que hace el impedido de Sebastián");
+		JPanel PP = new JPanel();
+		PP.setLayout(new BorderLayout(0, 7));
+		JPanel P1 = new JPanel();
+		P1.add(new JLabel("ValoraciÃ³n"));
+		JPanel P2 = new JPanel();
+		P2.add(new JLabel(
+				"Permite dar una valoracion al servicio prestado por la entidad al usiario de manera anonima"));
+
+		JPanel P3 = new JPanel();
+		P3.setLayout(new BorderLayout(0, 7));
+		JPanel P4 = new JPanel();
+		P4.setLayout(new GridLayout(4, 1, 0, 5));
+		P4.add(new JLabel("Por favor ingrese una valoraciÃ³n del 1 al 5 utiliando el punto para denotar decimales"));
+		P4.add(new JTextField(""));
+		P4.add(new JLabel("Por favor ingrese un comentario"));
+		P4.add(new JTextArea());
+		P3.add(P4, BorderLayout.CENTER);
+		JPanel P5 = new JPanel();
+		P5.setLayout(new GridLayout(1, 2, 0, 5));
+		enviar = new JButton(InterfazVista.ENVIAR);
+		enviar.addActionListener(new ControlOption());
 		volver = new JButton(InterfazVista.VOLVER);
 		volver.addActionListener(new ControlOption());
-		PanelPP.add(val);
-		PanelPP.add(volver);
-		this.add(PanelPP);
+		P5.add(enviar);
+		P5.add(volver);
+		P3.add(P5, BorderLayout.SOUTH);
+		PP.add(P1, BorderLayout.NORTH);
+		PP.add(P2, BorderLayout.CENTER);
+		PP.add(P3, BorderLayout.SOUTH);
+		this.add(PP);
 	}
 }
