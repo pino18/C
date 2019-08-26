@@ -1,0 +1,3 @@
+001232;Pago;limpieza
+001233;pagado;limpieza
+001231;pagado;extraccionmuela
