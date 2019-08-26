@@ -44,7 +44,7 @@ public class Valoracion extends OpcionDeMenu {//La clase valoracion guarda las v
 		}
 		
 	}
-	public void ejecutar(double N, String C) throws RandException{
+	public static void ejecutar(double N, String C) throws RandException{
 		if (!(N>=1&&N<=5)) {
 			throw new RandException();
 		}
@@ -52,7 +52,7 @@ public class Valoracion extends OpcionDeMenu {//La clase valoracion guarda las v
 			Data.valora.put(Data.valora.size()+1,N+";"+C);
 		}
 	}
-	public double ProGen() {
+	public static double ProGen() {
 		Double pro=0.0;
 		for (Map.Entry<Integer, String> valor: Data.valora.entrySet()) {
 			String[] vec = valor.getValue().split(";");
