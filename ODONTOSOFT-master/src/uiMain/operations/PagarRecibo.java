@@ -43,6 +43,15 @@ public class PagarRecibo extends OpcionDeMenu{//Hace el proceso de pago de un re
 			return R;
 		}throw new NotFoundException();
 	}
+	public static void Pago (String NR,int M) throws NotFoundException {
+		Recibo R = Data.reci.get(NR);
+		Procedimiento P = R.getProcedimiento();
+		if(M==P.getValor()) {
+			R.setEstado("Pago");
+		}else {
+			throw new NotFoundException();
+		}
+	}
 	@Override
 	public String toString() {
 		return "pagar recibo";
