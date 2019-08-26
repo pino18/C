@@ -16,6 +16,9 @@ public interface InterfazVista {
 		static final String AYUDA = "Ayuda";
 		static final String ENVIAR = "Enviar";
 		static final String USUARIO = "Usuario";
+		static final String ACEPTAR = "Aceptar";
+		static final String CANCELAR = "Cancelar";
+		static final String PAGAR = "Pagar";
 		// Opciones del menú
 		
 		static final String VEROPTION = "Ver opciones de un usuario";
