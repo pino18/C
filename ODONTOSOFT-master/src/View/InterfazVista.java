@@ -3,23 +3,23 @@ package View;
 public interface InterfazVista {
 	
 
-		void arranca(); // comienza la visualización
+		void arranca(); // comienza la visualizaciÃ³n
 		
 		void startConfigs(); // comienza las configuraciones
 		
 		// Constantes que definen las posibles operaciones:
 
-		static final String INICIAR = "Iniciar Sesión";
+		static final String INICIAR = "Iniciar SesiÃ³n";
 		static final String REGISTRAR = "Registrarse";
-		static final String VALORACION = "Dar valoración";
+		static final String VALORACION = "Dar valoraciÃ³n";
 		static final String VOLVER = "Volver";
 		static final String AYUDA = "Ayuda";
-		
+		static final String ENVIAR = "Enviar";
 		static final String USUARIO = "Usuario";
-		// Opciones del menú
+		// Opciones del menÃº
 		
 		static final String VEROPTION = "Ver opciones de un usuario";
-		static final String AGREGAROPTION = "Añadir opciones a un usuario";
+		static final String AGREGAROPTION = "AÃ±adir opciones a un usuario";
 		static final String ELIMINAROPTION = "Borrar opciones de un usuario";
 		static final String NEWADMIN = "Crear nuevo usuario admin";
 		static final String NEWEMPLEADO = "Crear nuevo usuario empleado";
