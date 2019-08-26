@@ -4,8 +4,9 @@ import java.util.Map;
 import java.util.Scanner;
 import uiMain.OpcionDeMenu;
 import BaseDatos.Data;
+import errorAplication.RandException;
 
-public class Valoracion extends OpcionDeMenu {//La clase valoracion guarda las valoraciones dadas por los usuarios de tipo invitado (Para que se realice de forma anonima) y hace un promedio de las valoraciones para tener una visión acerca de la opinión de las personas acerca de la compañia
+public class Valoracion extends OpcionDeMenu {//La clase valoracion guarda las valoraciones dadas por los usuarios de tipo invitado (Para que se realice de forma anonima) y hace un promedio de las valoraciones para tener una visiÃ³n acerca de la opiniÃ³n de las personas acerca de la compaÃ±ia
 
 	@Override
 	public void ejecutar() { //Ejecuta todas las operaciones de la clase Valoracion, como guardar y promediar las valoraciones otorgadas por usuarios anonimos
@@ -43,7 +44,22 @@ public class Valoracion extends OpcionDeMenu {//La clase valoracion guarda las v
 		}
 		
 	}
-
+	public void ejecutar(double N, String C) throws RandException{
+		if (!(N>=1&&N<=5)) {
+			throw new RandException();
+		}
+		else {
+			Data.valora.put(Data.valora.size()+1,N+";"+C);
+		}
+	}
+	public double ProGen() {
+		Double pro=0.0;
+		for (Map.Entry<Integer, String> valor: Data.valora.entrySet()) {
+			String[] vec = valor.getValue().split(";");
+			pro += Double.parseDouble(vec[0]);
+		}
+		return pro;
+	}
 	@Override
 	public String toString() {
 		
