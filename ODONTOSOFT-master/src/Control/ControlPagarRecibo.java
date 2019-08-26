@@ -38,7 +38,18 @@ public class ControlPagarRecibo implements ActionListener {
 			VentanaPP.contenedor.add(new PanelInicio());
 			VentanaPP.ventana.pack();
 		} else if (e.getActionCommand().equals(InterfazVista.PAGAR)) {
-			
+			int M = Integer.parseInt(PanelPagarRecibo.Mon.getText());
+			String NR = PanelPagarRecibo.;
+			try {
+				PagarRecibo.Pago(NR,M);
+				JOptionPane.showMessageDialog(null, "Pago exitoso"," Pagar Recibo", JOptionPane.YES_OPTION);
+				VentanaPP.contenedor.removeAll();
+				VentanaPP.contenedor.add(new PanelInicio());
+				VentanaPP.ventana.pack();
+				
+			}catch(NotFoundException re) {
+				JOptionPane.showMessageDialog(null, "Monto insuficiente, el recibo no ha sido pagado", "ERROR", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 
 	}
