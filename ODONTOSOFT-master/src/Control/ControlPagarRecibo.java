@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import View.InterfazVista;
 import View.PanelInicio;
+import View.PanelLogin;
 import View.PanelPagarRecibo;
 import View.PanelValoracion;
 import View.VentanaPP;
@@ -24,8 +25,6 @@ public class ControlPagarRecibo implements ActionListener {
 			String NR = PanelPagarRecibo.NroR.getText();
 			try {
 				Recibo R = PagarRecibo.Validacion(NR);
-				double PRO = Valoracion.ProGen();
-				JOptionPane.showMessageDialog(null, "La Valoracion General de la empresa es: "+PRO, "Valoracion General", JOptionPane.INFORMATION_MESSAGE);
 				VentanaPP.contenedor.removeAll();
 				VentanaPP.contenedor.add(new PanelPagarRecibo(R.getID(),R.getProcedimiento().getValor()));
 				VentanaPP.ventana.pack();
@@ -35,16 +34,16 @@ public class ControlPagarRecibo implements ActionListener {
 			}
 		} else if (e.getActionCommand().equals(InterfazVista.CANCELAR)) {
 			VentanaPP.contenedor.removeAll();
-			VentanaPP.contenedor.add(new PanelInicio());
+			VentanaPP.contenedor.add(new PanelLogin());
 			VentanaPP.ventana.pack();
 		} else if (e.getActionCommand().equals(InterfazVista.PAGAR)) {
 			int M = Integer.parseInt(PanelPagarRecibo.Mon.getText());
-			String NR = PanelPagarRecibo.;
+			String NR = PanelPagarRecibo.Nro;
 			try {
 				PagarRecibo.Pago(NR,M);
-				JOptionPane.showMessageDialog(null, "Pago exitoso"," Pagar Recibo", JOptionPane.YES_OPTION);
+				JOptionPane.showMessageDialog(null, "Pago exitoso"," Pagar Recibo", JOptionPane.INFORMATION_MESSAGE);
 				VentanaPP.contenedor.removeAll();
-				VentanaPP.contenedor.add(new PanelInicio());
+				VentanaPP.contenedor.add(new PanelLogin());
 				VentanaPP.ventana.pack();
 				
 			}catch(NotFoundException re) {

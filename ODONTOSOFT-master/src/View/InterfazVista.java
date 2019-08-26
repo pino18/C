@@ -9,7 +9,8 @@ public interface InterfazVista {
 		
 		// Constantes que definen las posibles operaciones:
 
-		static final String INICIAR = "Iniciar Sesión";
+		static final String INICIARADMIN = "Administrador";
+		static final String INICIARUSER = "Usuario com�n";
 		static final String REGISTRAR = "Registrarse";
 		static final String VALORACION = "Dar valoración";
 		static final String VOLVER = "Volver";

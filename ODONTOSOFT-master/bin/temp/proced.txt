@@ -1,2 +1,3 @@
-Limpieza;10000
-ExtraccionMuela;12000
+limpieza;10000
+extraccionmuela;12000
+ninguno;0

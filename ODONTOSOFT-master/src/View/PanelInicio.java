@@ -18,22 +18,24 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import Control.ControlOption;
+import Control.ControlPanelInicio.ControlMouseLabel;
 
 public class PanelInicio extends JPanel{
 	
 	//Componentes de la ventana
-	private JLabel L1;
+	public static JLabel L1;
 	private JLabel L2;
 	private JLabel L3;
 	private JLabel L4;
-	private JButton Change;
+	public static JButton Change;
 	private JTextField user;
 	private JTextArea texto;
 	private JPasswordField password;
 	private JButton iniciar;
+	private JButton iniciar2;
 	private JButton Salir;
 	private JButton registrar;
-	private JButton valora;
+	
 	private ImageIcon imagen;
 	private Icon icono;
 	
@@ -45,8 +47,8 @@ public class PanelInicio extends JPanel{
 		L1 = new JLabel("Bienvenidos a ODONTOSOFT");
 		Change = new JButton();
 		Change.setBounds(0,0,200,200);
-		Change.addMouseListener(new OyenteMouseLabel());
-		L1.addMouseListener(new OyenteMouseLabel());
+		//Change.addMouseListener(new ControlMouseLabel());
+		L1.addMouseListener(new ControlMouseLabel());
 		P1.setLayout(new GridLayout(2,1,0,100));
 		P1.add(L1);
 		imagen = new ImageIcon("tux.png");
@@ -62,25 +64,27 @@ public class PanelInicio extends JPanel{
 		JPanel P6 = new JPanel();
 		JPanel P7 = new JPanel();
 		JPanel P8 = new JPanel();
-		user = new JTextField("");
-		password = new JPasswordField();
+		user = new JTextField("admin");
+		password = new JPasswordField("12345");
 		texto = new JTextArea("Hola",10,30);
-		iniciar = new JButton(InterfazVista.INICIAR);
+		iniciar = new JButton(InterfazVista.INICIARADMIN);
 		Salir = new JButton("Salir");
-		iniciar.setActionCommand(InterfazVista.INICIAR);
+		iniciar.setActionCommand(InterfazVista.INICIARADMIN);
 		L2 = new JLabel("Ingrese su usuario y contraseña: ");
 		L3 = new JLabel("Usuario : ");
 		L4 = new JLabel("Contraseña: ");
 		//El ActionListener se cambia de null apenas se tenga el actionCommand en el controlador
 		iniciar.addActionListener(new ControlOption());
 		
+		
+		
+		iniciar2 = new JButton(InterfazVista.INICIARUSER);
+		iniciar2.setActionCommand(InterfazVista.INICIARUSER);
+		iniciar2.addActionListener(new ControlOption());
+		
 		registrar = new JButton(InterfazVista.REGISTRAR);
 		registrar.setActionCommand(InterfazVista.REGISTRAR);
-		registrar.addActionListener(null);
-		
-		valora = new JButton(InterfazVista.VALORACION);
-		valora.setActionCommand(InterfazVista.VALORACION);
-		valora.addActionListener(new ControlOption());
+		registrar.addActionListener(new ControlOption());
 		P2.add(P3);
 		P2.add(P4);
 		P4.add(P5);
@@ -99,8 +103,9 @@ public class PanelInicio extends JPanel{
 		P7.add(password);
 		P8.add(Salir);
 		P5.add(iniciar);
+		P5.add(iniciar2);
 		P5.add(registrar);
-		P5.add(valora);
+		
 		PanelPP.add(P2, BorderLayout.EAST);
 		this.add(PanelPP);
 	}
@@ -113,69 +118,4 @@ public class PanelInicio extends JPanel{
 		return password.getText();
 	}
 	
-	//Oyente para cambiar el color del label
-	class OyenteMouseLabel implements MouseListener {
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			L1.setForeground(Color.BLUE);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			L1.setForeground(Color.black);
-			
-		}
-
-	}class OyenteFoto implements MouseListener{
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
 }

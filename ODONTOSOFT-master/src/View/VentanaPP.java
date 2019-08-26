@@ -3,11 +3,14 @@ package View;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
 import BaseDatos.Data;
+import Control.ControlPanelInicio.ControlWindowsClose;
 import uiMain.operations.ActivosActuales;
 import uiMain.operations.AddOpt;
 import uiMain.operations.CancelarCita;
@@ -23,7 +26,7 @@ import uiMain.operations.SeeOpt;
 import uiMain.operations.SignOut;
 import uiMain.operations.SolicitarCita;
 
-public class VentanaPP extends JFrame implements InterfazVista {
+public class VentanaPP extends JFrame implements InterfazVista{
 	
 	public static Container contenedor;
 	public static JFrame ventana;
@@ -32,8 +35,10 @@ public class VentanaPP extends JFrame implements InterfazVista {
 	public VentanaPP() {
 		super("ODONTOSOFT");
 		startConfigs();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Se quita para guardar cuando se cierra la ventana usando el WindowListener
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana = this;
+		ventana.addWindowListener(new ControlWindowsClose());
 		menuBarra = new JMenuBar();
 		contenedor = this.getContentPane();
 		contenedor.add(new PanelInicio());
@@ -49,6 +54,7 @@ public class VentanaPP extends JFrame implements InterfazVista {
 
 	@Override
 	public void startConfigs() {//Asignación de las Keys de los menús de usuario, ademas los ingresa a la tabla hash operations que se encuentra en la clase Data
+		
 		//Cargar las opciones del programa primero
 		
 		//Operaciones administrativas
@@ -74,8 +80,6 @@ public class VentanaPP extends JFrame implements InterfazVista {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 }
 
 

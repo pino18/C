@@ -10,6 +10,7 @@ public class PanelPagarRecibo extends JPanel {
 	JButton aceptar;
 	JButton cancelar;
 	JButton pagar;
+	public static String Nro;
 	public static JTextField Mon;
 	public static JTextField NroR;
 

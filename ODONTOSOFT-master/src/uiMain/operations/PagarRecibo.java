@@ -1,6 +1,7 @@
 package uiMain.operations;
 import java.util.Scanner;
 import BaseDatos.Data;
+import errorAplication.NotFoundException;
 import gestorAplicacion.users.User;
 import uiMain.OpcionDeMenu;
 import gestorAplicacion.documents.Cita;

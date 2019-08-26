@@ -34,7 +34,7 @@ public class PanelValoracion extends JPanel {
 		enviar.addActionListener(new ControlValoracion());
 		volver = new JButton(InterfazVista.VOLVER);
 		volver.addActionListener(new ControlOption());
-		P5.add(enviar);//FALTA EL CONTROLADOR
+		P5.add(enviar);
 		P5.add(volver);
 		P3.add(P5, BorderLayout.SOUTH);
 		PP.add(P1, BorderLayout.NORTH);
