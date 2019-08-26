@@ -12,7 +12,7 @@ public class PagarRecibo extends OpcionDeMenu{//Hace el proceso de pago de un re
 		super(key);
 	}
 	@Override
-	public void ejecutar() {//Hace la validación del recibo, lo busca mediante ID y ejecuta las operaciones necesarias para poder asegurar que el monto ingresado por el usuario es suficiente para realizar el pago del recibo
+	public void ejecutar() {//Hace la validaciÃ³n del recibo, lo busca mediante ID y ejecuta las operaciones necesarias para poder asegurar que el monto ingresado por el usuario es suficiente para realizar el pago del recibo
 		Scanner leer = new Scanner(System.in);
 		while(true) {
 			System.out.print("Ingrese la identificacion del recibo");
@@ -37,7 +37,12 @@ public class PagarRecibo extends OpcionDeMenu{//Hace el proceso de pago de un re
 		}
 		
 	}
-
+	public static Recibo Validacion(String N) throws NotFoundException {
+		if (Data.reci.containsKey(N)) {
+			Recibo R = Data.reci.get(N);
+			return R;
+		}throw new NotFoundException();
+	}
 	@Override
 	public String toString() {
 		return "pagar recibo";
