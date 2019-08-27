@@ -9,7 +9,7 @@ import gestorAplicacion.users.User;
 public class MenuDeConsola {
 	
 	private User user;
-	private ArrayList<OpcionDeMenu> options = new ArrayList<OpcionDeMenu> ();//ArrayList que guarda las opciones de menú
+	private ArrayList<OpcionDeMenu> options = new ArrayList<OpcionDeMenu> ();//ArrayList que guarda las opciones de menÃº
 	
 	public MenuDeConsola(ArrayList<OpcionDeMenu> options){
 		this.options = options;
@@ -36,7 +36,7 @@ public class MenuDeConsola {
 		this.options = options;
 	}
 	
-	public String[] getOperations() {//Accede y retorna las opciones de menú que están asignadas a un usuario
+	public String[] getOperations() {//Accede y retorna las opciones de menÃº que estÃ¡n asignadas a un usuario
 		String [] opt = new String[options.size()];
 		int i = 0;
 		for (OpcionDeMenu opcionDeMenu : options) {
@@ -46,7 +46,7 @@ public class MenuDeConsola {
 		return opt;
 	}
 
-	public void lanzarMenu(){//Ejecuta el menú de usuario correspondiente
+	public void lanzarMenu(){//Ejecuta el menÃº de usuario correspondiente
 		Scanner leer = new Scanner(System.in);
 		
 		System.out.println();
@@ -65,7 +65,7 @@ public class MenuDeConsola {
 		
 	}
 	
-	public static void newMenu(User user, String [] operations) {//le asigna un menú de consola a un usuario, ademas los guarda en el HashMap, menus de la clase Data
+	public static void newMenu(User user, String [] operations) {//le asigna un menÃº de consola a un usuario, ademas los guarda en el HashMap, menus de la clase Data
 		ArrayList<OpcionDeMenu> operationsMenu = new ArrayList<OpcionDeMenu>();
 		for (String opt : operations) {
 			operationsMenu.add(Data.operations.get(opt));
@@ -75,19 +75,27 @@ public class MenuDeConsola {
 		Data.menus.put(user.getUsername(), menu);
 	}
 	
-	public void seeOpt() {//Imprime las opciones y les asigna un numero para accederlas en el menú
+	public void seeOpt() {//Imprime las opciones y les asigna un numero para accederlas en el menÃº
 		int i = 1;
 		for (OpcionDeMenu opcionDeMenu : options) {
 			System.out.println(i + " "+opcionDeMenu);
 			i++;
 		}
 	}
+	public ArrayList<String> seeOpt1() {//Retorna las opciones y les asigna un numero para accederlas en el menÃº
+		int i = 1;
+		ArrayList<String> A = new ArrayList();
+		for (OpcionDeMenu opcionDeMenu : options) {
+			A.add(i + " "+opcionDeMenu);
+			i++;
+		}return A;
+	}
 	
-	public void removeOpt(int index) {//Borra una opción
+	public void removeOpt(int index) {//Borra una opciÃ³n
 		options.remove(index-1);
 	}
 	
-	public void añadirOpcion(String opt) {//Añade una opción
+	public void aÃ±adirOpcion(String opt) {//AÃ±ade una opciÃ³n
 		options.add(Data.operations.get(opt));
 	}
 }
