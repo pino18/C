@@ -14,11 +14,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import Control.ControlOption;
 import Control.ControlPanelInicio.ControlMouseLabel;
+import Control.ControlPanelInicio.ControlSalir;
+import Control.ControlPanelInicio.ControlChangeButton;
 
 public class PanelInicio extends JPanel{
 	
@@ -35,9 +38,10 @@ public class PanelInicio extends JPanel{
 	private JButton iniciar2;
 	private JButton Salir;
 	private JButton registrar;
+	private JScrollPane scroll;
 	
-	private ImageIcon imagen;
-	private Icon icono;
+	public ImageIcon imagen;
+	public Icon icono;
 	
 	public PanelInicio(){
 		
@@ -46,12 +50,13 @@ public class PanelInicio extends JPanel{
 		JPanel P1 = new JPanel();
 		L1 = new JLabel("Bienvenidos a ODONTOSOFT");
 		Change = new JButton();
-		Change.setBounds(0,0,200,200);
+		Change.setBounds(0,0,210,210);
+		Change.addMouseListener(new ControlChangeButton());
 		//Change.addMouseListener(new ControlMouseLabel());
 		L1.addMouseListener(new ControlMouseLabel());
 		P1.setLayout(new GridLayout(2,1,0,100));
 		P1.add(L1);
-		imagen = new ImageIcon("tux.png");
+		imagen = new ImageIcon("logo.png");
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(Change.getWidth(), Change.getHeight(),Image.SCALE_DEFAULT));
 		Change.setIcon(icono);
 		P1.add(Change);
@@ -66,13 +71,23 @@ public class PanelInicio extends JPanel{
 		JPanel P8 = new JPanel();
 		user = new JTextField("admin");
 		password = new JPasswordField("12345");
-		texto = new JTextArea("Hola",10,30);
+		texto = new JTextArea("ODONTOSOFT. La finalidad de este sistema de información sería que todas las personas directamente asociadas a la entidad pudieran utilizarla para llevar a cabo los diferentes procesos que se pueden hacer entro de una entidad de este tipo, para que se dejara de lado tanto papeleo por la parte administrativa y de los médicos, y para evitar tanto tiempo que pierden los pacientes a la espera de que otra persona le haga cosas simples como agendar una cita medica o pagar un recibo, que las mismas personas pueden hacer, sin necesidad de intermediarios y más cómodo\n" + 
+				"A raíz de esto planteamos la idea de crear dos tipos de perfiles los cuales son los protagonistas de nuestro sistema de información: por un lado, está el perfil médico y por otro el perfil paciente. Cada uno con las operaciones pertinentes, como solicitar una cita por parte de el paciente, o modificar la historia clínica de un paciente por parte de un médico. \n" + 
+				"Al ser una entidad del sector salud nos vimos en la necesidad de crear clases que son propias de este sector, como lo son cita, procedimiento, Paciente, entre otras.\n" + 
+				"Como este es un ejemplo el cual se puede decir que vivimos día a día fue fácil plantear los atributos y las propias clases del problema, sin embargo, en el camino nos fuimos dando cuenta que teníamos huecos o que algunas cosas sobraban, que en nuestro modelo de entidad no servían.\n" + 
+				"Luego de este modelado empezamos a desarrollar la capa lógica, en la cual no se tuvo ningún problema, pues eran cosas similares a lo que anteriormente habíamos programado, y los problemas tenían soluciones simples usando diferentes estructuras de datos.\n" + 
+				"El verdadero problema se presento cuando empezamos a trabajar el menú de consola y los diferentes usuarios que íbamos a tener, pues esto era algo con lo que nunca habíamos trabajado, y menos con tener que guardar los archivos para que todo fuera consistente, a la final implementamos los métodos sugeridos por el monitor, y con ayuda de lo programado en la capa lógica y alguna documentación y sacaron las opciones de menú y los usuarios\n" + 
+				"El problema más grande dentro de todo el trabajo fue trabajar con los archivos de texto de base de datos, pues en diferentes momentos a lo largo del desarrollo se nos dañaban, aunque a la final supimos sortear todos los obstáculos.\n" + 
+				"",10,30);
+		texto.setLineWrap(true);
+		scroll = new JScrollPane(texto ,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		iniciar = new JButton(InterfazVista.INICIARADMIN);
 		Salir = new JButton("Salir");
+		Salir.addMouseListener(new ControlSalir());
 		iniciar.setActionCommand(InterfazVista.INICIARADMIN);
-		L2 = new JLabel("Ingrese su usuario y contraseña: ");
+		L2 = new JLabel("Ingrese su usuario y contraseÃ±a: ");
 		L3 = new JLabel("Usuario : ");
-		L4 = new JLabel("Contraseña: ");
+		L4 = new JLabel("ContraseÃ±a: ");
 		//El ActionListener se cambia de null apenas se tenga el actionCommand en el controlador
 		iniciar.addActionListener(new ControlOption());
 		
@@ -95,7 +110,7 @@ public class PanelInicio extends JPanel{
 		P5.setLayout(new GridLayout(1,1,4,2));
 		P4.setLayout(new GridLayout(4,1,10,10));
 		P2.setLayout(new GridLayout(2,1,10,20));
-		P3.add(texto);
+		P3.add(scroll);
 		P6.add(L2);
 		P7.add(L3);
 		P7.add(user);
@@ -119,3 +134,4 @@ public class PanelInicio extends JPanel{
 	}
 	
 }
+
