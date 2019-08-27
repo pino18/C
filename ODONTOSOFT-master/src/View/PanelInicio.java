@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import Control.ControlOption;
 import Control.ControlPanelInicio.ControlMouseLabel;
@@ -39,29 +40,28 @@ public class PanelInicio extends JPanel{
 	private JButton Salir;
 	private JButton registrar;
 	private JScrollPane scroll;
+	public static String nombrefoto = "imagen1.png";
+	public static ImageIcon imagen;
+	public static Icon icono;
 	
-	public ImageIcon imagen;
-	public Icon icono;
 	
 	public PanelInicio(){
-		
 		JPanel PanelPP = new JPanel();
-		PanelPP.setLayout(new BorderLayout(40,40));
+		PanelPP.setLayout(new BorderLayout(50,50));
 		JPanel P1 = new JPanel();
 		L1 = new JLabel("Bienvenidos a ODONTOSOFT");
 		Change = new JButton();
-		Change.setBounds(0,0,210,210);
 		Change.addMouseListener(new ControlChangeButton());
-		//Change.addMouseListener(new ControlMouseLabel());
-		L1.addMouseListener(new ControlMouseLabel());
-		P1.setLayout(new GridLayout(2,1,0,100));
-		P1.add(L1);
-		imagen = new ImageIcon("logo.png");
+		Change.setBounds(30,150,250,250	);
+		imagen = new ImageIcon(nombrefoto);
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(Change.getWidth(), Change.getHeight(),Image.SCALE_DEFAULT));
 		Change.setIcon(icono);
-		P1.add(Change);
+		L1.addMouseListener(new ControlMouseLabel());
+		L1.setHorizontalAlignment(SwingConstants.CENTER);
+		P1.setLayout(new BorderLayout(0,20));
+		P1.add(L1,BorderLayout.NORTH);
+		P1.add(Change,BorderLayout.SOUTH);
 		PanelPP.add(P1, BorderLayout.WEST);
-		
 		JPanel P2 = new JPanel();
 		JPanel P3 = new JPanel();
 		JPanel P4 = new JPanel();
@@ -131,6 +131,12 @@ public class PanelInicio extends JPanel{
 	
 	public String getPassword() {
 		return password.getText();
+	}
+	public static void CambiarImagen(String nombre){
+		Change.setBounds(30,150,250,250);
+		imagen = new ImageIcon(nombre);
+		icono = new ImageIcon(imagen.getImage().getScaledInstance(Change.getWidth(), Change.getHeight(),Image.SCALE_DEFAULT));
+		Change.setIcon(icono);
 	}
 	
 }
