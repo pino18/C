@@ -23,9 +23,9 @@ public class Paciente extends User{//Usuario de tipo paciente
 	public Acompaniante getAcompaniante() {//Accede y retorna el acompañante ligado a el paciente en cuestión
 		return Acompaniante;
 	}
-	public void SetAcompaniante(Acompaniante Acompaniante) {//Asigna un acompañante a el paciente en cuestión
-		this.Acompaniante=Acompaniante;
-	}
+	
+	//Asigna un acompañante a el paciente en cuestión
+		
 	public void setAcompaniante(Acompaniante Acompaniante) {
 		this.Acompaniante = Acompaniante;
 	}

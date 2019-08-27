@@ -3,6 +3,7 @@ package View;
 import java.awt.*;
 import javax.swing.*;
 
+import Control.ControlMenu;
 import Control.ControlPagarRecibo;
 import Control.ControlValoracion;
 
@@ -50,7 +51,9 @@ public class PanelPagarRecibo extends JPanel {
 		JPanel P3 = new JPanel();
 		P3.setLayout(new GridLayout(2,2,10,10));
 		P3.add(new JLabel("El recibo "+Nro+" tiene un valor de "));
-		P3.add(new JTextArea(Integer.toString(M)));
+		JTextArea value = new JTextArea(Integer.toString(M));
+		value.setEnabled(false);
+		P3.add(value);
 		P3.add(new JLabel("Ingrese el monto a pagar"));
 		Mon = new JTextField();
 		P3.add(Mon);
@@ -59,7 +62,7 @@ public class PanelPagarRecibo extends JPanel {
 		pagar = new JButton(InterfazVista.PAGAR);
 		pagar.addActionListener(new ControlPagarRecibo());
 		cancelar = new JButton(InterfazVista.CANCELAR);
-		cancelar.addActionListener(new ControlPagarRecibo());
+		cancelar.addActionListener(new ControlMenu());
 		P4.add(pagar);P4.add(cancelar);
 		PP.add(P1, BorderLayout.NORTH);
 		PP.add(P2, BorderLayout.NORTH);

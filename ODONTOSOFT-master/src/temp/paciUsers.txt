@@ -1,5 +1,6 @@
 sebas;1001774362;sebastianL;18;321654987;M;slm.com;12345
 malron;1234564321;Marlon;17;1234565432;M;23456yergsdg@gmail.com;12345
+julian;1001774262;Julian Carvajal;18;3194553559;Masculino;asokfnasofknaso@gmail.com;12345
 fulqjulio2;2134567534234;fulqjulio2;18;12324543;H;sdkvnsdijvc@gmail.com;holamundo
 emple5;juanj;;55;32156487;M;alal.com;12345
 pino18;32456432;Pino;18;32456756432;H;sdfbgndstr@gmail.com;12345

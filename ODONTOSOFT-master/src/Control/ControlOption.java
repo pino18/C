@@ -11,6 +11,7 @@ import View.InterfazVista;
 import View.PanelInicio;
 import View.PanelRegistrar;
 import View.PanelValoracion;
+import View.PanelVoid;
 import View.VentanaPP;
 import View.FieldPanel.FieldPanel;
 import errorAplication.ErrorAplication;
@@ -129,6 +130,7 @@ public class ControlOption implements ActionListener{
 			VentanaPP.contenedor.removeAll();
 			VentanaPP.contenedor.add(new PanelInicio());
 			VentanaPP.ventana.pack();
+			PanelRegistrar.Field = new FieldPanel();
 		}
 	}
 }

@@ -32,11 +32,8 @@ public class ControlPagarRecibo implements ActionListener {
 			}catch(NotFoundException re) {
 				JOptionPane.showMessageDialog(null, "El recibo con identificacion "+NR+" no fue encontrado", "ERROR", JOptionPane.WARNING_MESSAGE);
 			}
-		} else if (e.getActionCommand().equals(InterfazVista.CANCELAR)) {
-			VentanaPP.contenedor.removeAll();
-			VentanaPP.contenedor.add(new PanelLogin());
-			VentanaPP.ventana.pack();
-		} else if (e.getActionCommand().equals(InterfazVista.PAGAR)) {
+		}
+		else if (e.getActionCommand().equals(InterfazVista.PAGAR)) {
 			int M = Integer.parseInt(PanelPagarRecibo.Mon.getText());
 			String NR = PanelPagarRecibo.Nro;
 			try {
