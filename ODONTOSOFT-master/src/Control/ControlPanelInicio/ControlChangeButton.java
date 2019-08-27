@@ -1,12 +1,22 @@
 package Control.ControlPanelInicio;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-public class ControlChangeButton implements MouseListener {
 
+import View.PanelInicio;
+public class ControlChangeButton implements MouseListener {
+	int contador = 0;
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		contador++;
+			if(contador%3==1) {
+				PanelInicio.CambiarImagen("foto1.png");
+			}
+			if(contador%3==2) {
+				PanelInicio.CambiarImagen("foto2.png");
+			}
+			if(contador%3==0) {
+				PanelInicio.CambiarImagen("imagen1.png");
+			}
 	}
 
 	@Override
