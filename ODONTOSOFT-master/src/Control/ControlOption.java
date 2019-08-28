@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import View.InterfazVista;
 import View.PanelInicio;
+import View.PanelLogin;
 import View.PanelRegistrar;
 import View.PanelValoracion;
 import View.PanelVoid;
@@ -106,11 +107,12 @@ public class ControlOption implements ActionListener{
 					VentanaPP.ventana.setJMenuBar(VentanaPP.menuBarra);
 					
 					VentanaPP.contenedor.removeAll();
+					VentanaPP.contenedor.add(new PanelLogin());
 					VentanaPP.ventana.pack();
 				}
 			}
 			catch (ErrorAplication exp) {
-				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Usuario o contraseÃ±a incorrectos", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}
