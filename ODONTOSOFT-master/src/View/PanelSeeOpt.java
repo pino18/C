@@ -24,7 +24,7 @@ public class PanelSeeOpt extends JPanel {
 
 		JPanel P2 = new JPanel();
 		P2.setLayout(new GridLayout(1, 2, 5, 5));
-		P2.add(new JLabel("Ingrese la identificación del usuario"));
+		P2.add(new JLabel("Ingrese el nombre de usuario"));
 		ID = new JTextField();
 		P2.add(ID);
 
@@ -49,7 +49,7 @@ public class PanelSeeOpt extends JPanel {
 		P1.setLayout(new GridLayout(3,1,5,5));
 		P1.add(new JLabel("Vizualizacion de las opciones de usuario"));
 		P1.add(new JLabel("Permite obtener las opciones de menu que tiene el usuario que se ingrese"));
-		P1.add(new JLabel("Las opciones de menu de usuario con identificacion"+ID+"son:"));
+		P1.add(new JLabel("Las opciones de menu de usuario +ID+"son:"));
 
 		JPanel P2 = new JPanel();
 		P2.setLayout(new GridLayout(2,20,5,5));
