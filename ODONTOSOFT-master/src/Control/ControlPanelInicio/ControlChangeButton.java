@@ -9,10 +9,10 @@ public class ControlChangeButton implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		contador++;
 			if(contador%3==1) {
-				PanelInicio.CambiarImagen("foto1.png");
+				PanelInicio.CambiarImagen("foto2.png");
 			}
 			if(contador%3==2) {
-				PanelInicio.CambiarImagen("foto2.png");
+				PanelInicio.CambiarImagen("foto1.png");
 			}
 			if(contador%3==0) {
 				PanelInicio.CambiarImagen("imagen1.png");
