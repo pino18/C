@@ -86,7 +86,7 @@ public class MenuDeConsola {
 		int i = 1;
 		ArrayList<String> A = new ArrayList();
 		for (OpcionDeMenu opcionDeMenu : options) {
-			A.add(i + " "+opcionDeMenu);
+			A.add(opcionDeMenu.toString());
 			i++;
 		}return A;
 	}
