@@ -23,7 +23,8 @@ public class AddOpt extends OpcionDeMenu{//Añade una opcíon de menú a un usua
 		user.getMenu().añadirOpcion(opt);
 		System.out.print("FUncionalidad añadida ");
 	}
-	static public void ejecutar(String OP, String username) {//busca el usuario por su username y le muestra al administrador todas las opciones de menú que tiene disponible y que puede agregar al usuario en cuestión,
+	/*busca el usuario por su username y agrega la opcion que recibe en sus parametros*/
+	static public void ejecutar(String OP, String username) {
 		User user = User.getUserByUsername(username);
 		user.getMenu().añadirOpcion(OP);
 	}
