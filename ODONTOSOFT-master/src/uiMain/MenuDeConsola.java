@@ -82,7 +82,7 @@ public class MenuDeConsola {
 			i++;
 		}
 	}
-	public ArrayList<String> seeOpt1() {//Retorna las opciones y les asigna un numero para accederlas en el menú
+	public ArrayList<String> seeOpt1() {//Retorna las opciones en un ArrayList
 		int i = 1;
 		ArrayList<String> A = new ArrayList();
 		for (OpcionDeMenu opcionDeMenu : options) {
