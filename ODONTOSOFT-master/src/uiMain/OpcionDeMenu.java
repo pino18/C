@@ -51,7 +51,8 @@ public abstract class OpcionDeMenu {//Metodo abstracto del cual se derivan todas
 		System.out.println("Modifica Historia (12)");
 		System.out.println("Modificar cita (13)");
 	}
-	public static ArrayList<String> seeAllOperations2() {//Lista de manera Explicita y sin ambigüedades de orden entre las opciones de Menú, usada por la clase Añadir una funcionalidad a un usuario
+	//Retorna un arraylist con todas las opciones de menu exitentes
+	public static ArrayList<String> seeAllOperations2() {
 		ArrayList<String> A = new ArrayList();
 		A.add("Ver funciones de un usuario");
 		A.add("Añadir funciones a un usuario ");
