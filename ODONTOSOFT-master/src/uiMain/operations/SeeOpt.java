@@ -20,6 +20,7 @@ public class SeeOpt extends OpcionDeMenu {//Sirve para ver todas las opciones de
 		User user = User.getUserByUsername(username);
 		user.getMenu().seeOpt();
 	}
+	/*Retorna un array con las opciones de menu que el ingresado usuario tiene de momento*/
 	public static ArrayList<String> ejecutar(String ID) throws NotFoundException  {
 		User user = User.getUserByUsername(ID);
 		if(user!=null) {
